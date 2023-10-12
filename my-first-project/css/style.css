@@ -1,0 +1,32 @@
+body{
+    background-color: black;
+    color:aliceblue;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+h1{
+    font-size: 100px;
+}
+.big{
+    font-size: 100px;
+    font-family:monospace;
+    font-weight:100px;
+}
+#red{
+    color: coral;
+}
+#green{
+    color:aquamarine;
+}
+#yellow{
+    color: gold;
+
+}
+
+a{
+    color: lightpink;
+    font-size: 30px;
+}
+a:hover{
+    color: deeppink;
+    font-size: 40px;
+}
