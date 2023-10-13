@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>My First Page</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1 id = "red" class = "big">hello world!</h1>
-    <p>this is the first website I'm making</p>
-    <h2 id = "green" class = "big">I can have links</h2>
-    <a href="http://godoymarcela.com"><p>this is my website</p></a>
-    <h3 id ="yellow" class = "big" >I can have an image too</h3>
 
-    <a href = "https://shanghai.nyu.edu/academics/faculty/directory/jeffrey-lehman"> <img src="jeff.jpeg" alt="jeff"></a>
-    <p>credits NYU SHANGHAI</p>
+<head>
+    <title>My First Page</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <scipt src = "js/lib/p5.js"></scipt>
+    <script src = "js/lib/p5.sound.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+
+</head>
+
+
+<body>
+    <div id="title">
+        <h1 id="red" class="big">hello world!</h1>
+    </div>
+    <div id="content">
+        <div class="two-columns">
+            <div class="left">
+                <div id = "p5-canvas"></div>
+            </div>
+            <div class="right">
+                <p>this is the first website I'm making</p>
+                <h3 id="green" >I can have links</h2>
+                <a href="http://godoymarcela.com"><p>this is my website</p> </a>
+                <h3 id="yellow" >I can have an image too</h3>
+                <button onclick=" alert('Hello!') ">Click Me!</button>
+            </div>
+        </div>
+    </div>
+    <div class="one-column">
+        <p> hello hello hello hello hello hello hello hello</p>
+
+    </div>
+    <div id="footer">
+        <p>This is a CCLab project made by me in Fall23</p>
+    </div>
+<script src="js/sketch.js" type="text/javascipt"> </script>
 
 </body>
 

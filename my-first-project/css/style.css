@@ -26,7 +26,42 @@ a{
     color: lightpink;
     font-size: 30px;
 }
+
 a:hover{
     color: deeppink;
     font-size: 40px;
+}
+
+#title{
+    text-align: center;
+}
+
+#content{
+    width: 70%;
+    position: relative;
+    left: 15%;
+}
+
+.left{
+    float: left;
+    width: 50%;
+}
+.right{
+    float: left;
+    width: 50%;
+}
+.two-columns:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+img{
+    width: 90%;
+}
+#footer{
+    text-align:center;
+    font-size:9px;
+}
+.one-column{
+    text-align:center;
 }
