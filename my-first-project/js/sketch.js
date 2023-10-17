@@ -15,13 +15,13 @@ function setup() {
   canvas.parent("p5-canvas");
   colorMode(HSB, 100);
 
-  // Initialize original circle positions
+  //original circle positions
   for (let i = 0; i < numCircles; i++) {
     originalCircleX[i] = mouseX;
     originalCircleY[i] = mouseY;
   }
 
-  // Initialize circle positions
+  //circle positions
   resetCirclePositions();
 
   // background for star
