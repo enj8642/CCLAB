@@ -15,16 +15,16 @@ function setup() {
   canvas.parent("p5-canvas");
   colorMode(HSB, 100);
 
-  //original circle positions
+  // Original circle positions
   for (let i = 0; i < numCircles; i++) {
     originalCircleX[i] = mouseX;
     originalCircleY[i] = mouseY;
   }
 
-  //circle positions
+  // Circle positions
   resetCirclePositions();
 
-  // background for star
+  // Background for star
   for (let i = 0; i < 100; i++) {
     let x = random(width);
     let y = random(height);
@@ -45,7 +45,7 @@ function resetCirclePositions() {
 function draw() {
   background(0);
 
-  // stars
+  // Stars
   for (let i = 0; i < stars.length; i++) {
     let star = stars[i];
     star.radius += 0.02 * star.speed;
@@ -63,22 +63,12 @@ function draw() {
     }
   }
 
-  // positions of circles
+  // Positions of circles with noise
   for (let i = 0; i < numCircles; i++) {
-    circle(circleX[i] - 5, circleY[i] - 5, circleSize);
-  }
-
-  stroke(255);
-
-  // lines on the circles
-  for (let i = 0; i < numCircles - 1; i++) {
-    line(circleX[i] - 5, circleY[i] - 5, circleX[i + 1] - 5, circleY[i + 1] - 5);
-  }
-
-  // positions movement
-  for (let i = 0; i < numCircles; i++) {
-    circleX[i] = lerp(circleX[i], mouseX + 50 * sin(frameCount * (0.05 + i * 0.01) * speedMultiplier), 0.05);
-    circleY[i] = lerp(circleY[i], mouseY + 50 * cos(frameCount * (0.05 + i * 0.01) * speedMultiplier), 0.05);
+    let noiseX = noise(i * 0.1, frameCount * 0.01) * 100 - 50;
+    let noiseY = noise(i * 0.1 + 100, frameCount * 0.01) * 100 - 50;
+    circleX[i] = lerp(circleX[i], mouseX + noiseX, 0.05);
+    circleY[i] = lerp(circleY[i], mouseY + noiseY, 0.05);
   }
 
   if (changeColors) {
@@ -87,6 +77,18 @@ function draw() {
   } else {
     let c = map(sin(frameCount * 0.01), -1, 1, 0, 100);
     fill(c, 25, 75);
+  }
+
+  // Circles
+  for (let i = 0; i < numCircles; i++) {
+    circle(circleX[i] - 5, circleY[i] - 5, circleSize);
+  }
+
+  stroke(255);
+
+  // Lines on the circles
+  for (let i = 0; i < numCircles - 1; i++) {
+    line(circleX[i] - 5, circleY[i] - 5, circleX[i + 1] - 5, circleY[i + 1] - 5);
   }
 }
 
