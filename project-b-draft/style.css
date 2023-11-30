@@ -2,11 +2,12 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    color: #fff;
 }
 
 header {
-    background-color: #a7c5eb;
-    color: #333;
+    background-color: #ff0000;
+    color: #000000;
     text-align: center;
     padding: 0.5em 0;
 }
@@ -26,13 +27,23 @@ header {
     padding: 1.5em;
     border: 1px solid #e0a4a4; 
     box-sizing: border-box;
+    color:#000000;
+}
+
+.longbox{
+    width: 50%;
+    background-color: rgb(102, 243, 179); 
+    margin: 1em;
+    padding: 1.5 em;
+    /* border: 1px solid #e0a4a4;  */ 
+    box-sizing: border-box;
 }
 
 footer {
-    background-color: #a7c5eb;
-    color: #333;
+    background-color: #ff0000;
+    color: #000000;
     text-align: center;
-    padding: 0.5em 0;
+    padding: 0.25;
     position: fixed;
     bottom: 0;
     width: 100%;
