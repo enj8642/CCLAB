@@ -2,7 +2,7 @@ let deck, player, dealer;
 
 function setup() {
   let canvas = createCanvas(800, 400);
-  canvas.parent("myContainer")
+  canvas.parent("myContainer");
   deck = new Deck();
   player = new Player();
   dealer = new Player();

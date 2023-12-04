@@ -44,7 +44,21 @@ footer {
     color: #000000;
     text-align: center;
     padding: 0.25;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     width: 100%;
+}
+
+.canvasbox{
+    width: 100 px;
+    height: 100 px;
+
+}
+.canvas3Frame{
+    width: 100%;
+    height: 100%;
+}
+
+iframe{
+    display: block;
 }
