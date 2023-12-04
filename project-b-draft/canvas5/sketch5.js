@@ -1,6 +1,7 @@
 let wheel;
 let ball;
 let gameOver = false;
+let gameStarted = false;
 
 function setup() {
   let canvas = createCanvas(400, 400);
@@ -13,22 +14,30 @@ function draw() {
   background(255);
   wheel.display();
   
-  if (!gameOver) {
-    ball.display();
-    ball.update();
-  } else {
-    fill(255, 0, 0);
-    textSize(32);
-    textAlign(CENTER, CENTER);
-    text("You Lose", width / 2, 350);
+  if (gameStarted) {
+    if (!gameOver) {
+      ball.display();
+      ball.update();
+    } else {
+      fill(255, 0, 0);
+      textSize(32);
+      textAlign(CENTER, CENTER);
+      text("You Lose", width / 2, 350);
+    }
   }
 }
 
 function keyPressed() {
-  if (keyCode === ENTER) {
-    // Reset the game when Enter key is pressed
+  if (keyCode == ENTER) {
     ball.reset();
     gameOver = false;
+    gameStarted = false;
+  }
+}
+
+function mousePressed() {
+  if (dist(mouseX, mouseY, wheel.x, wheel.y) < wheel.diameter / 2) {
+    gameStarted = true;
   }
 }
 
@@ -40,18 +49,17 @@ class RouletteWheel {
   }
 
   display() {
-    // Draw wheel
     fill(150);
     stroke(0);
     strokeWeight(2);
     ellipse(this.x, this.y, this.diameter);
 
-    // Draw red and black sections
+    //friend help with red and black sections
     for (let i = 0; i < 360; i += 18) {
-      if (i % 36 === 0) {
-        fill(255, 0, 0); // Red
+      if (i % 36 == 0) {
+        fill(255, 0, 0);
       } else {
-        fill(0); // Black
+        fill(0);
       }
       arc(this.x, this.y, this.diameter, this.diameter, radians(i), radians(i + 18));
     }
@@ -74,8 +82,7 @@ class Ball {
         this.angle = 0;
       }
 
-      // Check if 6 seconds have passed
-      if (millis() > 2000) {
+      if (millis() > 12000) {
         this.stopped = true;
         this.angle = round(random(0, 360));
         gameOver = true;
@@ -84,11 +91,9 @@ class Ball {
   }
 
   display() {
-    // Calculate ball position based on the angle
     let ballX = this.wheel.x + this.radius * cos(radians(this.angle));
     let ballY = this.wheel.y + this.radius * sin(radians(this.angle));
 
-    // Draw ball
     fill(0);
     noStroke();
     ellipse(ballX, ballY, 10);

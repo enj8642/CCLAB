@@ -50,14 +50,11 @@ footer {
 }
 
 .canvasbox{
-    width: 100 px;
-    height: 100 px;
+    width: 300 px;
+    height: 300 px;
 
 }
-.canvas3Frame{
-    width: 100%;
-    height: 100%;
-}
+
 
 iframe{
     display: block;
